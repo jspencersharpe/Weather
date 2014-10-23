@@ -7,21 +7,23 @@ function getJSONP(url, cbName){
   document.body.appendChild($script);
 }
 
-function myAwesomeFunction(data){
-  console.log(data);
-  
-  var days = object.length;
-  for (var i = 0; i < 5; i++) {          
+function myAwesomeFunction(data){  
+     
+  for (var i = 0; i <5; i++) {
+     var day = data.forecast.simpleforecast.forecastday[i].date.weekday;
+     var highTemp = data.forecast.simpleforecast.forecastday[i].high.fahrenheit;
+     var lowTemp = data.forecast.simpleforecast.forecastday[i].low.fahrenheit;
 
-          var $ul = document.getElementById("daily-forcast");
-  addItemToList($ul, data.forecast.simpleforecast.forecastday);
+function addItemToList(data){
+  var $ulInsert = document.querySelector('#daily-forcast')
+  var $li = document.createElement('li');
+      $li.innerHTML = day + ":" + " High, " + highTemp + " &amp; " + "Low, " + lowTemp;
+      $ulInsert.appendChild($li);
+}
+addItemToList();
+
 }}
 
-function addItemToList($list, itemText){
-  var $li = document.createElement($li);
-      $li.innerHTML = JSON.stringify(itemText);
-      $list.appendChild($li);
-}
 
 document.addEventListener("DOMContentLoaded", function(){
         getJSONP(url, 'myAwesomeFunction');
