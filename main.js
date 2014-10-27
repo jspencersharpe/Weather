@@ -8,7 +8,13 @@ var $city = document.querySelector('.city');
 
 function myAwesomeFunction(data){ 
    weather = data;
+
+if (weather.response.error) {
+  alert("please enter a valid zipcode");
+} else {
+
    $city.innerHTML = weather.location.city;
+ 
    for(var i = 0; i <5; i++) {
      var $img = document.createElement('img')
      $img.src = weather.forecast.simpleforecast.forecastday[i].icon_url;
@@ -21,6 +27,8 @@ function myAwesomeFunction(data){
      $ul.appendChild($li);
 
   }
+   }
+
 }
 
 function getJSONP(url, cbName){
@@ -28,7 +36,7 @@ function getJSONP(url, cbName){
   $script.src = url + '?callback=' + cbName;
   document.body.appendChild($script);
 }
-
+  
 document.addEventListener('DOMContentLoaded', function(){
         getJSONP(url, 'myAwesomeFunction');
         $button.addEventListener('click', function() {
@@ -40,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function(){
         var newZip = unspecified + $zip + '.json';
         getJSONP(newZip, 'myAwesomeFunction');
         }
-     });               
+        
+              });               
 });
 
 
