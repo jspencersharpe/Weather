@@ -1,6 +1,6 @@
 var weather;
 var $zip = 37217;
-var unspecified = 'http://api.wunderground.com/api/7d2491b5dd06b094/geolookup/forecast10day/q/'; 
+var unspecified = 'http://api.wunderground.com/api/7d2491b5dd06b094/geolookup/forecast10day/q/';
 var $ul = document.querySelector('#daily-forcast');
 var url = 'http://api.wunderground.com/api/7d2491b5dd06b094/geolookup/forecast10day/q/' + $zip + '.json';
 var $button = document.querySelector('.submit');  
@@ -10,7 +10,7 @@ function myAwesomeFunction(data){
    weather = data;
 
 if (weather.response.error) {
-  alert("please enter a valid zipcode");
+  alert("Please enter a valid zipcode");
 } else {
 
    $city.innerHTML = weather.location.city;
@@ -27,8 +27,7 @@ if (weather.response.error) {
      $ul.appendChild($li);
 
   }
-   }
-
+ }
 }
 
 function getJSONP(url, cbName){
@@ -37,7 +36,7 @@ function getJSONP(url, cbName){
   document.body.appendChild($script);
 }
   
-document.addEventListener('DOMContentLoaded', function(){
+$(document).ready(function(){
         getJSONP(url, 'myAwesomeFunction');
         $button.addEventListener('click', function() {
         $zip = document.querySelector('.zip').value;
@@ -49,7 +48,27 @@ document.addEventListener('DOMContentLoaded', function(){
         getJSONP(newZip, 'myAwesomeFunction');
         }
         
-              });               
+    });               
 });
+
+// track location of user
+// alert to allow current location
+// when "OK" is pressed, use zip code determined to call api
+//
+//
+//
+var $geo = document.querySelector('.geo');
+var x = document.getElementById('.geo');
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+}
 
 
