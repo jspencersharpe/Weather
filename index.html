@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
  	<title>Weather</title>
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="main.css" type="text/css">
+  <!--<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,700italic' rel='stylesheet' type='text/css'>-->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css" type="text/css">
 </head>
 <body>
+<div class="container-fluid">
   <h1>Five Day Forcast</h1>
   <h2 class="city"></h2>
     <input class="zip" type="number" />
-  <input type="submit" class="submit" value="Find Weather" />
-  <input type="button" class="geo" value="My Location"/>
-
-  <ul id="daily-forcast">
-
-  </ul>
-
+    <input type="submit" class="submit" value="Find Weather" />
+    <input type="button" class="geo" value="My Location"/>
+    <ul id="daily-forcast"></ul>
+</div>
 </body>
 <script src="jquery-2.1.1.js"></script>
 <script type="text/javascript" src="main.js"></script>
