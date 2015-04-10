@@ -12,7 +12,7 @@ function myAwesomeFunction(data){
   if (weather.response.error) {
     alert("Please enter a valid zipcode");
   } else {
-     $city.innerHTML = weather.location.city;  
+     $city.innerHTML = weather.location.city + ', ' + weather.location.state;  
       for(var i = 0; i <5; i++) {
        var $img = document.createElement('img')
        $img.src = weather.forecast.simpleforecast.forecastday[i].icon_url;
@@ -23,9 +23,8 @@ function myAwesomeFunction(data){
       var lowTemp = weather.forecast.simpleforecast.forecastday[i].low.fahrenheit;
       var note = weather.forecast.txt_forecast.forecastday[i].fcttext;
       var $li = document.createElement('li');
-
-             
-      $li.innerHTML = day + "," + " " + month + " " + numDay +  ":" + " High of " + highTemp + " &amp; " + "Low of " + lowTemp + "<br>" + note;
+      $li.className = "days";
+      $li.innerHTML = "<span class='first-line'>" + day + "," + " " + month + " " + numDay +  ":" + " High of " + highTemp + " &amp; " + "Low of " + lowTemp + "</span>" + "<br />" + "<span class='note'>" + note + "</span";
       $li.appendChild($img);
       $ul.appendChild($li);
   }

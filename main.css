@@ -1,2 +1,56 @@
+body {
+  background-color: rgb(200, 218, 231);
+}
 
+.wrapper {
+  padding: 20px;
+}
+
+div.header {
+  margin-top: 25px;
+}
+
+ul {
+  list-style-type: none;
+}
+  
+li {
+  padding: 20px;
+}
+
+.first-line {
+  font-size: 1.5em;
+}
+
+.note {
+  padding-left: 20px;
+}
+
+li.days:nth-child(even) {
+  background-color: rgba(116, 141, 32, .4);
+}
+
+li.days:nth-child(odd) {
+  background-color: rgb(255, 255, 255);
+}
+
+.geo {
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h1.city {
+   background-color: rgb(255, 255, 255);
+   text-align: center;
+   padding: 15px;
+   margin: 15px;
+   border-radius: 5px;
+ }
+
+span.first-line {
+  font-weight: bold;
+}
 

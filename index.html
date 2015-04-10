@@ -6,20 +6,26 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="main.css" type="text/css">
 </head>
-<div class="container-fluid">
-  <h1>Five Day Forcast</h1>
-  <h2 class="city"></h2>
-    <div class="col-lg-4">
+<div class="container container-fluid">
+  <div class="header col-xs-6 col-md-4">
+    <div class="title">
+      <h1>&#9728; Five Day Forcast</h1>
+      <h1 class="city"></h1>
+    </div>
+     <div>
       <div class="input-group">
         <span class="input-group-btn">
           <button type="submit" class="submit btn btn-default" name="Find Weather">Find Weather</button>        
         </span>
        <input class="zip form-control" placeholder="zip code" type="number" />
     </div>
+     <button type="button" class="geo btn btn-primary btn-lg" value="My Location">My Location</button>      
     </div>
-     <button type="button" class="geo btn btn-default" value="My Location">My Location</button>    
-     <ul class="list-group" id="daily-forcast"></ul>
-</div>
+  </div>     
+     <div class="wrapper col-sm-6 col-md-8">
+       <ul class="list-group" id="daily-forcast"></ul>      
+    </div>
+  </div>
 <body>
 </body>
 <script src="jquery-2.1.1.js"></script>
