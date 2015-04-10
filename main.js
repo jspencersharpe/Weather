@@ -16,11 +16,16 @@ function myAwesomeFunction(data){
       for(var i = 0; i <5; i++) {
        var $img = document.createElement('img')
        $img.src = weather.forecast.simpleforecast.forecastday[i].icon_url;
+      var month = weather.forecast.simpleforecast.forecastday[i].date.monthname;
+      var numDay = weather.forecast.simpleforecast.forecastday[i].date.day;
       var day = weather.forecast.simpleforecast.forecastday[i].date.weekday;
       var highTemp = weather.forecast.simpleforecast.forecastday[i].high.fahrenheit;
       var lowTemp = weather.forecast.simpleforecast.forecastday[i].low.fahrenheit;
+      var note = weather.forecast.txt_forecast.forecastday[i].fcttext;
       var $li = document.createElement('li');
-      $li.innerHTML = day + ":" + " High of " + highTemp + " &amp; " + "Low of " + lowTemp;
+
+             
+      $li.innerHTML = day + "," + " " + month + " " + numDay +  ":" + " High of " + highTemp + " &amp; " + "Low of " + lowTemp + "<br>" + note;
       $li.appendChild($img);
       $ul.appendChild($li);
   }
