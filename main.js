@@ -15,8 +15,13 @@ function myAwesomeFunction(data){
   } else {
      $city.innerHTML = weather.location.city + ', ' + weather.location.state;  
       var logo = document.createElement('img');
-      logo.src = weather.forecast.simpleforecast.forecastday[0].icon_url; 
-      todayIcon.appendChild(logo);
+      logo.src = weather.forecast.simpleforecast.forecastday[0].icon_url;
+      
+      if ( $(".todayIcon").children().length > 0) {
+        todayIcon.replaceChild(logo, logo);
+      } else {
+        todayIcon.appendChild(logo);        
+      }
 
       for(var i = 0; i <5; i++) {
        var $img = document.createElement('img');
