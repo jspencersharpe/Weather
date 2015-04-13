@@ -6,6 +6,7 @@ var url = 'http://api.wunderground.com/api/7d2491b5dd06b094/geolookup/forecast10
 var $button = document.querySelector('.submit');  
 var $city = document.querySelector('.city');
 var geo = document.querySelector('.geo');
+var todayIcon = document.querySelector('.todayIcon');
 
 function myAwesomeFunction(data){ 
    weather = data;
@@ -13,8 +14,12 @@ function myAwesomeFunction(data){
     alert("Please enter a valid zipcode");
   } else {
      $city.innerHTML = weather.location.city + ', ' + weather.location.state;  
+      var logo = document.createElement('img');
+      logo.src = weather.forecast.simpleforecast.forecastday[0].icon_url; 
+      todayIcon.appendChild(logo);
+
       for(var i = 0; i <5; i++) {
-       var $img = document.createElement('img')
+       var $img = document.createElement('img');
        $img.src = weather.forecast.simpleforecast.forecastday[i].icon_url;
       var month = weather.forecast.simpleforecast.forecastday[i].date.monthname;
       var numDay = weather.forecast.simpleforecast.forecastday[i].date.day;
