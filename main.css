@@ -1,5 +1,10 @@
+@font-face {
+  font-family: Pacifico;
+  src: url(assets/pacifico/Pacifico.ttf);
+}
+
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(217, 217, 217);
 }
 
 .wrapper {
@@ -48,7 +53,7 @@ h1.city {
    color: rgb(255, 255, 255); 
    text-align: center;
    padding: 15px;
-   margin-top: 50px;
+   margin-top: 20px;
    border-radius: 5px;
    font-size: 2em;
  }
@@ -59,9 +64,18 @@ span.first-line {
 
 h1.heading {
   color: rgb(255, 255, 255);  
+  font-family: Pacifico;
   padding: 20px;
-  font-size: 2em;
-  margin-top: 40px;
+  font-size: 2.8em;
+  margin-top: 30px;
+}
+
+h1.todayIcon {
+  padding-bottom: 0;
+}
+
+div.title {
+  text-align: center;
 }
 
 span {
@@ -70,5 +84,9 @@ span {
 
 div.buttons {
   text-align: center;
+}
+
+h1 img {
+  width: 100px;
 }
 
