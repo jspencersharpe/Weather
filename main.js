@@ -1,5 +1,5 @@
 var weather;
-var $zip = 37206;
+var $zip = 10001;
 var unspecified = 'http://api.wunderground.com/api/7d2491b5dd06b094/geolookup/forecast10day/q/';
 var $ul = document.querySelector('#daily-forcast');
 var url = 'http://api.wunderground.com/api/7d2491b5dd06b094/geolookup/forecast10day/q/' + $zip + '.json';
