@@ -9,7 +9,7 @@ var geo = document.querySelector('.geo');
 var todayIcon = document.querySelector('.todayIcon');
 
 function myAwesomeFunction(data){ 
-   weather = data;
+  weather = data;
   if (weather.response.error) {
     alert("Please enter a valid zipcode");
   } else {
@@ -23,22 +23,23 @@ function myAwesomeFunction(data){
         todayIcon.appendChild(logo);        
       }
 
-      for(var i = 0; i <5; i++) {
+     for(var i = 0; i <5; i++) {
        var $img = document.createElement('img');
-       $img.src = weather.forecast.simpleforecast.forecastday[i].icon_url;
-      var month = weather.forecast.simpleforecast.forecastday[i].date.monthname;
-      var numDay = weather.forecast.simpleforecast.forecastday[i].date.day;
-      var day = weather.forecast.simpleforecast.forecastday[i].date.weekday;
-      var highTemp = weather.forecast.simpleforecast.forecastday[i].high.fahrenheit;
-      var lowTemp = weather.forecast.simpleforecast.forecastday[i].low.fahrenheit;
-      var note = weather.forecast.txt_forecast.forecastday[i].fcttext;
-      var $li = document.createElement('li');
-      $li.className = "days";
-      $li.innerHTML = "<span class='first-line'>" + day + "," + " " + month + " " + numDay +  ":" + " High of " + highTemp + " &amp; " + "Low of " + lowTemp + "</span>" + "<br />" + "<span class='note'>" + note + "</span";
-      $li.appendChild($img);
-      $ul.appendChild($li);
-  }
- }
+       var base = weather.forecast.simpleforecast.forecastday[i];
+       $img.src = base.icon_url;
+       var month = base.date.monthname;
+       var numDay = base.date.day;
+       var day = base.date.weekday;
+       var highTemp = base.high.fahrenheit;
+       var lowTemp = base.low.fahrenheit;
+       var note = weather.forecast.txt_forecast.forecastday[i].fcttext;
+       var $li = document.createElement('li');
+        $li.className = "days";
+        $li.innerHTML = "<span class='first-line'>" + day + "," + " " + month + " " + numDay +  ":" + " High of " + highTemp + " &amp; " + "Low of " + lowTemp + "</span>" + "<br />" + "<span class='note'>" + note + "</span";
+        $li.appendChild($img);
+        $ul.appendChild($li);
+    }
+   }
 }
 
 function getJSONP(url, cbName){
