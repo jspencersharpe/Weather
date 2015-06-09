@@ -1,23 +1,20 @@
 var weather;
 var $zip = 10001;
 var unspecified = 'http://api.wunderground.com/api/7d2491b5dd06b094/geolookup/forecast10day/q/';
-var $ul = document.querySelector('#daily-forcast');
+var $ul = document.querySelector('#daily-forecast');
 var url = 'http://api.wunderground.com/api/7d2491b5dd06b094/geolookup/forecast10day/q/' + $zip + '.json';
-var $button = document.querySelector('.submit');  
-var $city = document.querySelector('.city');
-var geo = document.querySelector('.geo');
-var todayIcon = document.querySelector('.todayIcon');
 
 function myAwesomeFunction(data){ 
   weather = data;
   if (weather.response.error) {
     alert("Please enter a valid zipcode");
   } else {
-     $city.innerHTML = weather.location.city + ', ' + weather.location.state;  
+     $('.city').text(weather.location.city + ', ' + weather.location.state);  
       var logo = document.createElement('img');
       logo.src = weather.forecast.simpleforecast.forecastday[0].icon_url;
       
-      if ( $(".todayIcon").children().length > 0) {
+      var todayIcon = document.querySelector('.todayIcon');
+      if ($(".todayIcon").children().length > 0) {
         todayIcon.replaceChild(logo, logo);
       } else {
         todayIcon.appendChild(logo);        
@@ -60,8 +57,8 @@ function myLocation(position) {
 
 $(document).ready(function(){
         getJSONP(url, 'myAwesomeFunction');
-        $button.addEventListener('click', function() {
-        $zip = document.querySelector('.zip').value;
+        $('.submit').on('click', function() {
+        $zip = $('.zip').val();
         if($zip.length != 5){
                 alert('Please enter valid zip code');
         } else {
@@ -70,7 +67,7 @@ $(document).ready(function(){
         getJSONP(newZip, 'myAwesomeFunction');
         }
     }); 
-    geo.addEventListener('click', function(){
+    $('.geo').on('click', function(){
       navigator.geolocation.getCurrentPosition(myLocation);
     })        
 });
