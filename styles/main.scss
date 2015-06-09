@@ -1,3 +1,5 @@
+$mainRed: #CF4646
+
 body {
   background-color: rgb(217, 217, 217);
 }
@@ -9,7 +11,6 @@ div.wrapper {
     list-style-type: none;
   }
 
-    
   li.days {
     padding: 20px;
 
@@ -29,7 +30,7 @@ div.wrapper {
   }
 
   li.days:nth-child(odd) {
-    background-color: #CF4646;
+    background-color: $mainRed;
     color: rgb(255, 255, 255);
     border-radius: 3px;  
   }
@@ -38,7 +39,7 @@ div.wrapper {
 div.header {
   margin-top: 25px;
   padding-bottom: 25px;
-  background-color: #CF4646; 
+  background-color: $mainRed; 
   border-radius: 3px;
 
   div.title {
