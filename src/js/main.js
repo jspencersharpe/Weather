@@ -12,14 +12,16 @@ function myAwesomeFunction(data){
      $('.city').text(weather.location.city + ', ' + weather.location.state);  
       var logo = document.createElement('img');
       logo.src = weather.forecast.simpleforecast.forecastday[0].icon_url;
-      
-      var todayIcon = document.querySelector('.todayIcon');
-      if ($(".todayIcon").children().length > 0) {
-        todayIcon.replaceChild(logo, logo);
-      } else {
-        todayIcon.appendChild(logo);        
-      }
+      console.log(logo);
 
+      var today = $('.todayIcon');
+      $('.todayIcon').append(logo);
+      if (today.children().length === 0) {
+        today.append(logo);
+      } else if (today.children().length > 1) {
+        today.html(logo);
+      }
+      
      for(var i = 0; i <5; i++) {
        var $img = document.createElement('img');
        var base = weather.forecast.simpleforecast.forecastday[i];
@@ -35,7 +37,7 @@ function myAwesomeFunction(data){
         $li.innerHTML = "<span class='first-line'>" + day + "," + " " + month + " " + numDay +  ":" + " High of " + highTemp + " &amp; " + "Low of " + lowTemp + "</span>" + "<br />" + "<span class='note'>" + note + "</span";
         $li.appendChild($img);
         $ul.appendChild($li);
-    }
+     }
    }
 }
 
